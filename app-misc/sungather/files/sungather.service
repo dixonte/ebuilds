@@ -1,0 +1,13 @@
+[Unit]
+Description=SunGather, Sungrow inverter data collection service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/sungather
+ExecStart=/opt/sungather/.venv/bin/python /opt/sungather/sungather.py -c /etc/sungather-config.yaml
+User=nobody
+Group=nobody
+
+[Install]
+WantedBy=multi-user.target
