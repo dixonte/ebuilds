@@ -8,6 +8,7 @@ WorkingDirectory=/opt/sungather
 ExecStart=/opt/sungather/.venv/bin/python /opt/sungather/sungather.py -c /etc/sungather/config.yaml -r /etc/sungather/registers.yaml
 User=nobody
 Group=nobody
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
