@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/opt/sungather
-ExecStart=/opt/sungather/.venv/bin/python /opt/sungather/sungather.py -c /etc/sungather-config.yaml
+ExecStart=/opt/sungather/.venv/bin/python /opt/sungather/sungather.py -c /etc/sungather/config.yaml -r /etc/sungather/registers.yaml
 User=nobody
 Group=nobody
 

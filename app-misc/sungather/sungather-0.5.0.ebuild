@@ -62,8 +62,10 @@ src_install() {
 	dodir /opt/
 	cp -R "${S}/SunGather" "${D}/opt/sungather" || die "Failed copying files."
 
-	insinto /etc/
-	newins "${S}/SunGather/config-example.yaml" "sungather-config.yaml"	
+	dodir /etc/sungather
+	insinto /etc/sungather/
+	newins "${S}/SunGather/config-example.yaml" "config.yaml"
+	newins "${S}/SunGather/registers-sungrow.yaml" "registers.yaml"
 
 	systemd_dounit "${FILESDIR}"/sungather.service
 }
