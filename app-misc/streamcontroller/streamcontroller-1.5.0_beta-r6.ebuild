@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/StreamController/StreamController.git"
 EGIT_COMMIT="${PV/_/-}${PR/r/\.}"
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 SLOT="0"
 RESTRICT="network-sandbox"
@@ -49,5 +49,8 @@ src_compile() {
 
 src_install() {
 	dodir /opt/
-	cp -R "${S}" "${D}/opt/StreamController" || die "Failed copying files."
+	cp -R "${S}" "${D}/opt/streamcontroller" || die "Failed copying files."
+
+	dodir /usr/share/applications/
+	cp "${FILESDIR}/StreamController.desktop" "${D}/usr/share/applications/" || dir "Failed copying desktop file."
 }
