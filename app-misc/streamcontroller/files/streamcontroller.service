@@ -1,0 +1,11 @@
+[Unit]
+Description=StreamController for Stream Deck
+
+[Service]
+Type=simple
+ExecStart=/opt/streamcontroller/.venv/bin/python main.py -b
+WorkingDirectory=/opt/streamcontroller/
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

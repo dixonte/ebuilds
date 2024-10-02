@@ -8,7 +8,7 @@ inherit systemd
 
 DESCRIPTION="An elegant Linux app for the Elgato Stream Deck with support for plugins"
 
-HOMEPAGE="https://streamcontroller.github.io/"
+HOMEPAGE="https://github.com/StreamController/StreamController"
 
 EGIT_REPO_URI="https://github.com/StreamController/StreamController.git"
 #EGIT_COMMIT="${PV/_/-}${PR/r/\.}"
@@ -48,6 +48,9 @@ src_compile() {
 src_install() {
 	dodir /opt/
 	cp -R "${S}" "${D}/opt/StreamController" || die "Failed copying files."
+
+	dodir /usr/lib/systemd/user/
+	cp "${FILESDIR}/streamcontroller.service" "${D}/usr/lib/systemd/user/" || die "Failed copying user system file."
 
 	dodir /usr/share/applications/
 	cp "${FILESDIR}/StreamController.desktop" "${D}/usr/share/applications/" || dir "Failed copying desktop file."
