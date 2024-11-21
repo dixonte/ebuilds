@@ -49,6 +49,9 @@ src_install() {
 	dodir /opt/
 	cp -R "${S}" "${D}/opt/streamcontroller" || die "Failed copying files."
 
+	dodir /usr/bin/
+	cp "${FILESDIR}/streamcontroller" "${D}/usr/bin/" || die "Failed copying entrypoint script."
+
 	dodir /usr/lib/systemd/user/
 	cp "${FILESDIR}/streamcontroller.service" "${D}/usr/lib/systemd/user/" || die "Failed copying user system file."
 

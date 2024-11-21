@@ -1,7 +1,6 @@
 [Desktop Entry]
 Comment=An elegant Linux app for the Elgato Stream Deck with support for plugins
-Exec=/opt/streamcontroller/.venv/bin/python main.py
-Path=/opt/streamcontroller
+Exec=/usr/bin/streamcontroller
 GenericName=Stream Deck
 Icon=/opt/streamcontroller/flatpak/icon_256.png
 Name=StreamController

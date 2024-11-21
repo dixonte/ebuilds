@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /opt/streamcontroller
+/opt/streamcontroller/.venv/bin/python main.py "$@"
