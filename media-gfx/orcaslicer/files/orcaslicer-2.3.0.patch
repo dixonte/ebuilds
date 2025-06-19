@@ -1,0 +1,52 @@
+diff --git a/OrcaSlicer-2.3.0/deps/MPFR/MPFR.cmake b/OrcaSlicer-2.3.0/deps/MPFR/MPFR.cmake
+index 1161a1ca6..9bf2b5be2 100644
+--- a/OrcaSlicer-2.3.0/deps/MPFR/MPFR.cmake
++++ b/OrcaSlicer-2.3.0/deps/MPFR/MPFR.cmake
+@@ -25,7 +25,7 @@ else ()
+     endif ()
+ 
+     ExternalProject_Add(dep_MPFR
+-        URL https://www.mpfr.org/mpfr-current/mpfr-4.2.1.tar.bz2
++        URL https://www.mpfr.org/mpfr-4.2.1/mpfr-4.2.1.tar.bz2
+         URL_HASH SHA256=b9df93635b20e4089c29623b19420c4ac848a1b29df1cfd59f26cab0d2666aa0
+         DOWNLOAD_DIR ${DEP_DOWNLOAD_DIR}/MPFR
+         BUILD_IN_SOURCE ON
+diff --git a/OrcaSlicer-2.3.0/deps/OpenCV/OpenCV.cmake b/OrcaSlicer-2.3.0/deps/OpenCV/OpenCV.cmake
+index 23cbafa2a..43f80f07c 100644
+--- a/OrcaSlicer-2.3.0/deps/OpenCV/OpenCV.cmake
++++ b/OrcaSlicer-2.3.0/deps/OpenCV/OpenCV.cmake
+@@ -11,7 +11,7 @@ endif ()
+ orcaslicer_add_cmake_project(OpenCV
+     URL https://github.com/opencv/opencv/archive/refs/tags/4.6.0.tar.gz
+     URL_HASH SHA256=1ec1cba65f9f20fe5a41fda1586e01c70ea0c9a6d7b67c9e13edf0cfe2239277
+-    PATCH_COMMAND git apply ${OpenCV_DIRECTORY_FLAG} --verbose --ignore-space-change --whitespace=fix ${CMAKE_CURRENT_LIST_DIR}/0001-vs2022.patch
++    #PATCH_COMMAND git apply ${OpenCV_DIRECTORY_FLAG} --verbose --ignore-space-change --whitespace=fix ${CMAKE_CURRENT_LIST_DIR}/0001-vs2022.patch
+     CMAKE_ARGS
+     -DBUILD_SHARED_LIBS=0
+        -DBUILD_PERE_TESTS=OFF
+diff --git a/OrcaSlicer-2.3.0/deps/TIFF/TIFF.cmake b/OrcaSlicer-2.3.0/deps/TIFF/TIFF.cmake
+index 01d72428b..b6febf1fc 100644
+--- a/OrcaSlicer-2.3.0/deps/TIFF/TIFF.cmake
++++ b/OrcaSlicer-2.3.0/deps/TIFF/TIFF.cmake
+@@ -17,7 +17,7 @@ if (APPLE)
+ else()
+     orcaslicer_add_cmake_project(TIFF
+         URL https://gitlab.com/libtiff/libtiff/-/archive/v4.1.0/libtiff-v4.1.0.zip
+-        URL_HASH SHA256=c56edfacef0a60c0de3e6489194fcb2f24c03dbb550a8a7de5938642d045bd32
++        URL_HASH SHA256=17a3e875acece9be40b093361cfef47385d4ef22c995ffbf36b2871f5785f9b8
+         DEPENDS ${ZLIB_PKG} ${PNG_PKG} dep_JPEG
+         CMAKE_ARGS
+             -Dlzma:BOOL=OFF
+diff --git a/OrcaSlicer-2.3.0/src/slic3r/CMakeLists.txt b/OrcaSlicer-2.3.0/src/slic3r/CMakeLists.txt
+index 1e5ae3451..6b398fc1b 100644
+--- a/OrcaSlicer-2.3.0/src/slic3r/CMakeLists.txt
++++ b/OrcaSlicer-2.3.0/src/slic3r/CMakeLists.txt
+@@ -631,7 +631,7 @@ elseif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+     FIND_LIBRARY(WAYLAND_EGL_LIBRARIES    NAMES wayland-egl)
+     FIND_LIBRARY(WAYLAND_CLIENT_LIBRARIES NAMES wayland-client)
+     find_package(CURL REQUIRED)
+-    target_link_libraries(libslic3r_gui ${DBUS_LIBRARIES} OSMesa)
++    target_link_libraries(libslic3r_gui ${DBUS_LIBRARIES})
+     target_link_libraries(libslic3r_gui
+         OpenGL::EGL
+         ${WAYLAND_SERVER_LIBRARIES}
