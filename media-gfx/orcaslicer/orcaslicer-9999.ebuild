@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop, xdk-utils
+inherit desktop xdg-utils
 #inherit cmake
 
 DESCRIPTION="G-code generator for 3D printers (Bambu, Prusa, Voron, VzBot, RatRig, Creality, etc.)"
