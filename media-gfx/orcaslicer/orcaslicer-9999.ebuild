@@ -27,7 +27,7 @@ else
     MY_PN="OrcaSlicer"
     MY_P=${MY_PN}-${MY_PV}
     SRC_URI="https://github.com/SoftFever/OrcaSlicer/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
-    KEYWORDS="-* ~amd64 ~arm ~arm64 ~x86"
+    KEYWORDS="~amd64 ~arm ~arm64 ~x86"
     S="${WORKDIR}"
 fi
 
