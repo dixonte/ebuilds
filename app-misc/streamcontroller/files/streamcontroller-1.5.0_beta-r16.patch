@@ -1,0 +1,10 @@
+--- a/requirements.txt    2025-03-30 20:26:09.948730049 +1100
++++ b/requirements.txt    2025-03-30 20:23:56.067531706 +1100
+@@ -35,6 +35,7 @@
+ pyparsing==3.3.2
+ pyproject-metadata==0.12.1
+ Pyro5==5.17
++pyserial==3.5
+ python-dateutil==2.9.0.post0
+ python-wayland-extra==0.7.0
+ pytz==2026.3.post1
