@@ -4,12 +4,12 @@ EAPI=8
 
 inherit git-r3 linux-mod-r1
 
-DESCRIPTION="Driver for the Coral Apex m.2 board"
-#HOMEPAGE=""
+DESCRIPTION="The Coral Gasket Driver allows usage of the Coral EdgeTPU on Linux systems"
+HOMEPAGE="https://github.com/google/gasket-driver https://github.com/jnicolson/gasket-builder"
 
 EGIT_REPO_URI="https://github.com/google/gasket-driver.git"
 
-#LICENSE="GPL-3"
+LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 
 SLOT="0"
