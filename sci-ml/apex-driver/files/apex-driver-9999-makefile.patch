@@ -1,0 +1,11 @@
+--- Makefile        2026-09-13 15:57:57.758260662 +1000
++++ Makefile    2026-09-13 15:58:09.562577763 +1000
+@@ -8,7 +8,7 @@
+ gasket-objs    := gasket_core.o gasket_ioctl.o gasket_interrupt.o gasket_page_table.o gasket_sysfs.o
+ apex-objs      := apex_driver.o
+ 
+-KVERSION := $(shell uname -r)
++KVERSION := ${KV_FULL}
+ 
+ all:
+        $(MAKE) -C /lib/modules/$(KVERSION)/build M=$(PWD) modules

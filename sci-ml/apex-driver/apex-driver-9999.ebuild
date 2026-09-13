@@ -31,6 +31,9 @@ src_prepare() {
 	cd "${WORKDIR}/${P}"
 	git apply gasket-builder/patches/*
 
+	cd "${WORKDIR}/${P}/src"	
+	eapply -p0 "${FILESDIR}/${P}-makefile.patch"
+
 	default
 }
 
@@ -45,7 +48,7 @@ src_compile() {
 		NIH_KSRC="${KV_DIR}"
 	)
 
-	emake "${MODULES_MAKEARGS[@]}"
+	emake "${MODULES_MAKEARGS[@]}" KV_FULL="${KV_FULL}"
 }
 
 src_install() {
