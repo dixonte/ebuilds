@@ -25,6 +25,14 @@ DEPEND="
 	${RDEPEND}
 "
 
+src_unpack() {
+	default
+
+	git-r3_fetch https://github.com/google/gasket-driver.git
+	git-r3_checkout https://github.com/google/gasket-driver.git
+	git-r3_fetch https://github.com/jnicolson/gasket-builder.git
+}
+
 src_prepare() {
 	git-r3_checkout https://github.com/jnicolson/gasket-builder.git "${WORKDIR}/${P}/gasket-builder"
 
